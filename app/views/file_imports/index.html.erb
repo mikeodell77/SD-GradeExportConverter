@@ -3,26 +3,21 @@
 <%= link_to 'Import', import_path, class: 'button' %>
 <%= link_to 'Download Spreadsheet', file_imports_path(format: "csv"), class: 'button' %></br></br>
 
+
+<h3>
+  This is the list of files you have uploaded. If you missed a file during the upload, you will need to upload all the files (including the ones listed here) again.
+</h3>
+
 <table>
   <thead>
   <tr>
-    <th>Student First Name</th>
-    <th>Student Last Name</th>
-    <th>Student User ID</th>
-    <th>Course ID</th>
-    <th>Section Number</th>
-    <th>Grade</th>
+    <th>File Name</th>
   </tr>
   </thead>
   <tbody>
-  <% @file_imports.each do |import| %>
+  <% @imported_files.each do |import| %>
     <tr>
-      <td><%= import.first_name %></td>
-      <td><%= import.last_name %></td>
-      <td><%= import.student_id %></td>
-      <td><%= import.course_id %></td>
-      <td><%= import.section_num %></td>
-      <td><%= import.grade %></td>
+      <td><%= import.file_name %></td>
     </tr>
   <% end %>
   </tbody>
@@ -31,3 +26,4 @@
 <br />
 
 <%= link_to 'Import', new_file_import_path, class: 'button' %>
+<%= link_to 'Download Spreadsheet', file_imports_path(format: "csv"), class: 'button' %>

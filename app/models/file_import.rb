@@ -8,8 +8,7 @@ class FileImport < ActiveRecord::Base
                   :comment_3, :comment_4, :comment_5, :comment_text
 
   def self.import(file)
-		# first delete everything
-		FileImport.delete_all
+
 
 		spreadsheet = open_spreadsheet(file)
 		header = spreadsheet.row(2)
@@ -23,7 +22,6 @@ class FileImport < ActiveRecord::Base
 			new_file_import.course_id = "#{row['Course Code']}"
 			new_file_import.section_num = "#{row['Section Id']}"
 			cululative_grade = row['Cumulative'].to_f
-			puts "What is the grade : #{cululative_grade.round}"
 			new_file_import.grade = cululative_grade.round
 
 			new_file_import.save!

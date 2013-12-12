@@ -2,7 +2,8 @@ class FileImportsController < ApplicationController
   # GET /file_imports
   # GET /file_imports.json
   def index
-    @file_imports = FileImport.order(:last_name)
+    @file_imports = FileImport.order(:course_id)
+    @imported_files = CreateFile.all
 
     respond_to do |format|
 	    format.html # index.html.erb
@@ -41,16 +42,22 @@ class FileImportsController < ApplicationController
   # POST /file_imports
   # POST /file_imports.json
   def create
-    @file_import = FileImport.new(params[:file_import])
+    # first delete all recorded uploaded files
+    CreateFile.delete_all
+    FileImport.delete_all
 
+    files = params[:file_import][:file]
+    files.each do |file|
+      CreateFile.create(:file_name => file.original_filename)
+      FileImport.import(file)
+    end
+
+    puts "Here is what we found for files : #{files.inspect}"
+    # @file_import = FileImport.new(params[:file_import])
+    @file_imports = FileImport.order(:last_name)
     respond_to do |format|
-      if @file_import.save
-        format.html { redirect_to @file_import, notice: 'File import was successfully created.' }
-        format.json { render json: @file_import, status: :created, location: @file_import }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @file_import.errors, status: :unprocessable_entity }
-      end
+      format.html { redirect_to root_path, notice: 'File(s) imported successfully.' }
+      format.json { render json: @file_import, status: :created, location: @file_import }
     end
   end
 
@@ -90,7 +97,12 @@ class FileImportsController < ApplicationController
   # PROCESS_IMPORT /upload
 	def upload
 		puts "We are processing the import! #{params[:file]}"
-		FileImport.import(params[:file])
+    unless params[:file].blank?
+      params[:file].each do |file|
+        FileImport.import(params[:file])
+      end
+    end 
+		
 
 		# now get them all
 		@imports = FileImport.all
