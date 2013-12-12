@@ -204,6 +204,7 @@
     <orderEntry type="library" scope="PROVIDED" name="mini_portile (v0.5.2, RVM: ruby-1.9.3-p448 [imeet3]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="multi_json (v1.8.2, RVM: ruby-1.9.3-p448 [imeet3]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="nokogiri (v1.6.0, RVM: ruby-1.9.3-p448 [imeet3]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="pg (v0.17.0, RVM: ruby-1.9.3-p448 [imeet3]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="polyglot (v0.3.3, RVM: ruby-1.9.3-p448 [imeet3]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="quote_unquote (v0.1.1, RVM: ruby-1.9.3-p448 [imeet3]) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rack (v1.4.5, RVM: ruby-1.9.3-p448 [imeet3]) [gem]" level="application" />
