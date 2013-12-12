@@ -1,0 +1,44 @@
+<h2>Import Student Granes</h2>
+
+<%= link_to "Download sample upload spreadsheet", "trainee_upload.xlsx" %>
+<br/>
+<br/>
+<%= form_tag import_path, multipart: true, method: 'POST' do %>
+  <div class="control-group">
+    <%= label_tag "Select a file to upload", nil, :class => 'control-label' %>
+    <div class="controls">
+      <%= file_field_tag :file, :accept => 'text/comma-separated-values, text/csv, application/csv, application/excel, application/vnd.ms-excel, application/vnd.msexcel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', :multiple => true %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <div class="controls">
+      <%= submit_tag "Import", class: 'btn btn-primary' %>
+      <%= link_to "Cancel", :back, class: 'btn btn-primary' %>
+    </div>
+  </div>
+<% end %>
+
+<% if @imports %>
+<table>
+  <thead>
+    <tr>
+      <th>Student First Name</th>
+      <th>Student Last Name</th>
+      <th>Student User ID</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @imports.each do |import| %>
+    <tr>
+      <td><%= import.first_name %></td>
+      <td><%= import.last_name %></td>
+      <td><%= import.student_id %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+
+
+<% end %>

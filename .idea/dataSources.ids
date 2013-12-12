@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source source="LOCAL" name="Rails SD-GradeExportConverter: development" uuid="32f942ab-d2b7-45a5-8306-2ce654ae5265">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source source="LOCAL" name="Rails SD-GradeExportConverter: development" uuid="d8a9c589-9c34-4470-9f51-c9b1a7aec623">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+</component>

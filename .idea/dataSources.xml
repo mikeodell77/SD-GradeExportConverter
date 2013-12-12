@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="3044444997">
+    <data-source source="LOCAL" name="Rails SD-GradeExportConverter: development" uuid="32f942ab-d2b7-45a5-8306-2ce654ae5265">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/db/development.sqlite3</jdbc-url>
+      <libraries>
+        <library>
+          <url>$USER_HOME$/Library/Preferences/RubyMine50/jdbc-drivers/xerial-sqlite-license.txt:/Users/mikeodell/Library/Preferences/RubyMine50/jdbc-drivers/sqlite-jdbc-3.7.2.jar:</url>
+        </library>
+      </libraries>
+    </data-source>
+    <data-source source="LOCAL" name="Rails SD-GradeExportConverter: development" uuid="d8a9c589-9c34-4470-9f51-c9b1a7aec623">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/db/development.sqlite3</jdbc-url>
+      <libraries>
+        <library>
+          <url>$USER_HOME$/Library/Preferences/RubyMine50/jdbc-drivers/xerial-sqlite-license.txt:/Users/mikeodell/Library/Preferences/RubyMine50/jdbc-drivers/sqlite-jdbc-3.7.2.jar:</url>
+        </library>
+      </libraries>
+    </data-source>
+  </component>
+</project>
+

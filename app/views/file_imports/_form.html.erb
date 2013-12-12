@@ -1,0 +1,17 @@
+<%= form_for(@file_import) do |f| %>
+  <% if @file_import.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@file_import.errors.count, "error") %> prohibited this file_import from being saved:</h2>
+
+      <ul>
+      <% @file_import.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

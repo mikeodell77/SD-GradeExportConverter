@@ -1,0 +1,33 @@
+<h1>Saint David's Web Grade Imports</h1>
+
+<%= link_to 'Import', import_path, class: 'button' %><br/>
+<%= link_to 'Download Spreadsheet', file_imports_path(format: "csv") %></br></br>
+
+<table>
+  <thead>
+  <tr>
+    <th>Student First Name</th>
+    <th>Student Last Name</th>
+    <th>Student User ID</th>
+    <th>Course ID</th>
+    <th>Section Number</th>
+    <th>Grade</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @file_imports.each do |import| %>
+    <tr>
+      <td><%= import.first_name %></td>
+      <td><%= import.last_name %></td>
+      <td><%= import.student_id %></td>
+      <td><%= import.course_id %></td>
+      <td><%= import.section_num %></td>
+      <td><%= import.grade %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<br />
+
+<%= link_to 'Import', new_file_import_path, class: 'button' %>
