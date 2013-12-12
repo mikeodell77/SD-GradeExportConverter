@@ -6,4 +6,7 @@
   <data-source source="LOCAL" name="Rails SD-GradeExportConverter: development" uuid="d8a9c589-9c34-4470-9f51-c9b1a7aec623">
     <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
   </data-source>
+  <data-source source="LOCAL" name="Rails SD-GradeExportConverter: production" uuid="7960d264-bcc6-4643-b263-a5d904093da3">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
 </component>
