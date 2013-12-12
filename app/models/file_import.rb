@@ -15,7 +15,6 @@ class FileImport < ActiveRecord::Base
 		header = spreadsheet.row(2)
 		(3..spreadsheet.last_row).each do |i|
 			row = Hash[[header, spreadsheet.row(i)].transpose]
-			puts "What is in row : #{row.inspect}"
 			new_file_import = FileImport.new
 
 			new_file_import.last_name = "#{row['Student Last']}"
@@ -23,7 +22,9 @@ class FileImport < ActiveRecord::Base
 			new_file_import.student_id = "#{row['Student User Id']}"
 			new_file_import.course_id = "#{row['Course Code']}"
 			new_file_import.section_num = "#{row['Section Id']}"
-			new_file_import.grade = "#{row['Cumulative']}"
+			cululative_grade = row['Cumulative'].to_f
+			puts "What is the grade : #{cululative_grade.round}"
+			new_file_import.grade = cululative_grade.round
 
 			new_file_import.save!
 			end
