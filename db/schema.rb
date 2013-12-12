@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131212152100) do
+ActiveRecord::Schema.define(:version => 20131212175311) do
 
   create_table "create_files", :force => true do |t|
     t.string   "file_name"
@@ -42,6 +42,13 @@ ActiveRecord::Schema.define(:version => 20131212152100) do
     t.string   "comment_4"
     t.string   "comment_5"
     t.text     "comment_text"
+  end
+
+  create_table "senior_systems", :force => true do |t|
+    t.string   "senior_system_id"
+    t.string   "email"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
 
 end

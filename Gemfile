@@ -46,3 +46,5 @@ gem 'foundation-rails'
 
 # To use debugger
 # gem 'debugger'
+
+gem 'wicked'

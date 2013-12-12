@@ -14,9 +14,12 @@ SDGradeexportconverter::Application.routes.draw do
   #   resources :products
 
 	get 'import', to: 'file_imports#import'
+  get 'import_senior_system', to: 'senior_systems#import_senior_system'
 	post 'import', to: 'file_imports#upload'
 
 	resources :file_imports
+  resources :upload_steps
+  resources :senior_systems
 
   # Sample resource route with options:
   #   resources :products do

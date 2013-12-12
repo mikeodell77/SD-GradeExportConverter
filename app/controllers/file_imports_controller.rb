@@ -52,8 +52,6 @@ class FileImportsController < ApplicationController
       FileImport.import(file)
     end
 
-    puts "Here is what we found for files : #{files.inspect}"
-    # @file_import = FileImport.new(params[:file_import])
     @file_imports = FileImport.order(:last_name)
     respond_to do |format|
       format.html { redirect_to root_path, notice: 'File(s) imported successfully.' }
