@@ -13,6 +13,23 @@
 
   <body>
 
+  <nav class="top-bar" data-topbar>
+    <ul class="title-area">
+      <li class="name">
+        <h1><a href="#">Saint David's Spreadsheet Converter</a></h1>
+      </li>
+      <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+    </ul>
+
+    <section class="top-bar-section">
+      <!-- Left Nav Section -->
+      <ul class="left">
+        <li><a href="#"><%= link_to "Home", file_imports_path %></a></li>
+        <li><a href="#"><%= link_to "Upload Whipple Hill Spreadsheet", whipple_hills_path %></a></li>
+      </ul>
+    </section>
+  </nav>  
+
   <div class="row">
     <div class="large-12 columns">
       <%= yield %>

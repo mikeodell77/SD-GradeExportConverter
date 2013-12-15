@@ -1,9 +1,7 @@
 class SeniorSystemsController < ApplicationController
 	def create
 		SeniorSystem.delete_all
-
       	SeniorSystem.import(params[:senior_system][:file])
-
       	redirect_to upload_steps_path
     end
 

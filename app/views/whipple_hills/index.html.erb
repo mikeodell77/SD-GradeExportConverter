@@ -1,15 +1,17 @@
-<h2>Import Senior Systems File</h2>
+<h2>Import Whipple Hill Spreadsheet</h2>
 <br/>
 <br/>
 
 <% if @import_present %>
-  <p>There is currently a senior systems file uploaded.<br/>
-    It was uploaded at <%= @import_present.created_at %>
+  <p>
+    There is currently a whipple file uploaded. <br/>
+    It was uploaded at <%= @import_present.created_at %><br/><br/>
   </p>
+  
 
 <% end %>
 
-<%= form_for SeniorSystem.new, multipart: true, method: 'POST' do |f|%>
+<%= form_for WhippleHill.new, multipart: true, method: 'POST' do |f|%>
   <div class="control-group">
     <div class="controls">
       <%= f.file_field :file, :accept => 'text/comma-separated-values, text/csv, application/csv, application/excel, application/vnd.ms-excel, application/vnd.msexcel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', class: 'button' %>
@@ -19,7 +21,6 @@
   <div class="form-actions">
     <div class="controls">
       <%= submit_tag "Import", class: 'button' %>
-      <%= link_to "Skip this step", import_path, class: 'button' %>
       <%= link_to "Cancel", root_path, class: 'button' %>
     </div>
   </div>

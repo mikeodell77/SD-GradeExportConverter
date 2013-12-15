@@ -8,24 +8,28 @@ class FileImport < ActiveRecord::Base
                   :comment_3, :comment_4, :comment_5, :comment_text
 
   def self.import(file)
+	spreadsheet = open_spreadsheet(file)
+	header = spreadsheet.row(2)
+	(3..spreadsheet.last_row).each do |i|
+		row = Hash[[header, spreadsheet.row(i)].transpose]
+		new_file_import = FileImport.new
 
+		new_file_import.last_name = "#{row['Student Last']}"
+		new_file_import.first_name = "#{row['Student First']}"
+		whipple_student_id = row['Student User Id']
+		whipple = WhippleHill.find_by_whipple_hill_id(whipple_student_id)
+		# whipple = WhippleHill.find_by_sql ["select email from whipple_hills where whipple_hill_id = ?", whipple_student_id]
+		puts "What is whipple : #{whipple.inspect}"
+		senior = SeniorSystem.find_by_email(whipple.email)
+		puts ">>>>>>>>>>>> senior : #{senior.inspect}"
+		new_file_import.student_id = senior.senior_system_id
+		new_file_import.course_id = "#{row['Course Code']}"
+		new_file_import.section_num = "#{row['Section Id']}"
+		cululative_grade = row['Cumulative'].to_f
+		new_file_import.grade = cululative_grade.round
 
-		spreadsheet = open_spreadsheet(file)
-		header = spreadsheet.row(2)
-		(3..spreadsheet.last_row).each do |i|
-			row = Hash[[header, spreadsheet.row(i)].transpose]
-			new_file_import = FileImport.new
-
-			new_file_import.last_name = "#{row['Student Last']}"
-			new_file_import.first_name = "#{row['Student First']}"
-			new_file_import.student_id = "#{row['Student User Id']}"
-			new_file_import.course_id = "#{row['Course Code']}"
-			new_file_import.section_num = "#{row['Section Id']}"
-			cululative_grade = row['Cumulative'].to_f
-			new_file_import.grade = cululative_grade.round
-
-			new_file_import.save!
-			end
+		new_file_import.save!
+	end
   end
 
   def self.to_csv

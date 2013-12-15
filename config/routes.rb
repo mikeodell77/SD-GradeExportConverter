@@ -15,11 +15,13 @@ SDGradeexportconverter::Application.routes.draw do
 
 	get 'import', to: 'file_imports#import'
   get 'import_senior_system', to: 'senior_systems#import_senior_system'
+  get 'import_whipple', to: 'whipple#import_whipple'
 	post 'import', to: 'file_imports#upload'
 
 	resources :file_imports
   resources :upload_steps
   resources :senior_systems
+  resources :whipple_hills
 
   # Sample resource route with options:
   #   resources :products do
