@@ -34,9 +34,9 @@ class FileImport < ActiveRecord::Base
 
   def self.to_csv
 		CSV.generate(:force_quotes=>true) do |csv|
-			csv << [:first_name, :last_name, :student_id, :course_id, :section_num, :grade, :grade_2, :grade_3, :grade_4, :grade_5, :effort, :conduct, :comment, :comment_2, :comment_3, :comment_4, :comment_5, :comment_text]
+			# csv << [:first_name, :last_name, :student_id, :course_id, :section_num, :grade, :grade_2, :grade_3, :grade_4, :grade_5, :effort, :conduct, :comment, :comment_2, :comment_3, :comment_4, :comment_5, :comment_text]
 			all.each do |import|
-				csv << [ import.first_name, import.last_name, import.student_id, import.course_id, import.section_num, import.grade, import.grade_2, import.grade_3, import.grade_4, import.grade_5, import.effort, import.conduct, import.comment, import.comment_2, import.comment_3, import.comment_4, import.comment_5, import.comment_text]
+				csv << [ import.last_name, import.first_name, import.student_id, import.course_id, import.section_num, import.grade, import.grade_2, import.grade_3, import.grade_4, import.grade_5, import.effort, import.conduct, import.comment, import.comment_2, import.comment_3, import.comment_4, import.comment_5, import.comment_text]
 			end
 		end
   end
