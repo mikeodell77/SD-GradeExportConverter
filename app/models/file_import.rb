@@ -36,7 +36,27 @@ class FileImport < ActiveRecord::Base
 		CSV.generate(:force_quotes=>true) do |csv|
 			# csv << [:first_name, :last_name, :student_id, :course_id, :section_num, :grade, :grade_2, :grade_3, :grade_4, :grade_5, :effort, :conduct, :comment, :comment_2, :comment_3, :comment_4, :comment_5, :comment_text]
 			all.each do |import|
-				csv << [ import.last_name, import.first_name, import.student_id, import.course_id, import.section_num, import.grade, import.grade_2, import.grade_3, import.grade_4, import.grade_5, import.effort, import.conduct, import.comment, import.comment_2, import.comment_3, import.comment_4, import.comment_5, import.comment_text]
+				last_name = import.last_name ? import.last_name.qq : "\"\""
+				first_name = import.first_name ? import.first_name.qq : "\"\""
+				student_id = import.student_id ? import.student_id.qq : "\"\""
+				course_id = import.course_id ? import.course_id.qq : "\"\""
+				section_num = import.section_num ? import.section_num.qq : "\"\""
+				grade = import.grade ? import.grade.qq : "\"\""
+				grade2 = import.grade_2 ? import.grade_2.qq : "\"\""
+				grade3 = import.grade_3 ? import.grade_3.qq : "\"\""
+				grade4 = import.grade_4 ? import.grade_4.qq : "\"\""
+				grade5 = import.grade_5 ? import.grade_5.qq : "\"\""
+				effort = import.effort ? import.effort.qq : "\"\""
+				conduct = import.conduct ? import.conduct.qq : "\"\""
+				comment = import.comment ? import.comment.qq : "\"\""
+				comment2 = import.comment_2 ? import.comment_2.qq : "\"\""
+				comment3 = import.comment_3 ? import.comment_3.qq : "\"\""
+				comment4 = import.comment_4 ? import.comment_4.qq : "\"\""
+				comment5 = import.comment_5 ? import.comment_5.qq : "\"\""
+				comment_text = import.comment_text ? import.comment_text.qq : "\"\""
+
+
+				csv << [ last_name, first_name, student_id, course_id , section_num, grade, grade2, grade3, grade4, grade5, effort, conduct, comment, comment2, comment3, comment4, comment5, comment_text]
 			end
 		end
   end
